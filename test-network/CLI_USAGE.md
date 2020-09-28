@@ -26,7 +26,7 @@ Add peers to each org
 List all peers
 
 ```sh
-./list-peers
+./list-peers.sh
 ```
 
 ### Tear Down
