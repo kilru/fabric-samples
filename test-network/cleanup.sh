@@ -1,6 +1,10 @@
+#!/bin/bash
+
 ./network.sh down
 docker volume rm $(docker volume ls -qf dangling="true")
 cd docker
-rm -v !("docker-compose-ca.yaml"|"docker-compose-couch.yaml"|"docker-compose-test-net.yaml") 
+find . -type f -not -name '*docker-compose-ca.yaml' -not -name '*docker-compose-couch.yaml' -not -name '*docker-compose-test-net.yaml' | xargs rm
+cd ..
+rm ./conf.yaml
 echo "10001" > './max-port'
 
